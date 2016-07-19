@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Light Sensor Data</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <script>
+        $(function() {
+            $("#phoneChangerForm").submit(function(event) {
+
+				var ident = $("ident").val();
+                var sensorval = $("#sensorval").val();
+                var timestamp = $("#timestamp").val();
+
+                $.ajax({
+                    url: event.target.action,
+                    method: event.target.method,
+                    data: JSON.stringify({
+						ident: ident,
+                        sensorval: sensorval,
+                        timestamp: timestamp,
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+							$("ident").val("");
+                            $("#sensorval").val("");
+                            $("#timestamp").val("");
+					}
+                })
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Light Sensor Data</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form id="phoneChangerForm" action="/update" method="post" style="width: 400px">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Most Recent Data</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="sensorval">Sensor Data:</label>
+                        <div id="sensorval" placeholder="sensorval">
+                    </div>
+                    <div class="form-group">
+                        <label for="timestamp">Time Stamp:</label>
+                        <div id="timestamp" placeholder="timestamp">
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-primary">Refresh</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
