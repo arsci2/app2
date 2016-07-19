@@ -13,7 +13,6 @@ app.post('', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issue
 		conn.query('SELECT id, sensorValue__c, sensorTimestamp__c FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 1',
-		  [req.body.sensorval.trim()],
 			function(err, result) {
 				done();
 				if (err) {
