@@ -30,6 +30,7 @@
 						$("#deviceos").text(data.rows[0].deviceos__c);
 						$("#loginuname").text(data.rows[0].loginuname__c);
 						$("#devicename").text(data.rows[0].devicename__c);
+						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
 					}
                 })
             });
@@ -82,6 +83,11 @@
 					<br>
 					<div class="form-group">
                         <label for="loginuname">User (Salesforce User): </label>
+                        <div id="loginuname">
+                    </div>
+					<br>
+					<div class="form-group">
+                        <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
                         <div id="loginuname">
                     </div>
                 </div>
