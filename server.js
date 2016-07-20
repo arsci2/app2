@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || 5000);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('', function(req, res) {
+app.get('/update', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
 		conn.query('SELECT * FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 20',
 			function(err, result) {
