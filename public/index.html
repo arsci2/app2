@@ -13,6 +13,8 @@
         }
     </style>
     <script>
+		$("sensorvalue__c").text("0");
+		$("sensortimestanmp__c").text("--/--/-- --:--:--");
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
@@ -38,12 +40,10 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
-	<div class="panel panel-default">
-                
-        <form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-            <div class="panel-heading">
+		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+			<div class="panel panel-default">
+				<div class="panel-heading">
                     <h3 class="panel-title">Most Recent Data</h3>
                 </div>
                 <div class="panel-body">
@@ -55,7 +55,6 @@
                         <label for="sensortimestamp__c">Time Stamp: </label>
                         <div id="sensortimestamp__c">
                     </div>
-					
                 </div>
                 <div class="panel-footer">
                     <button type="submit" class="btn btn-primary">Refresh</button>
