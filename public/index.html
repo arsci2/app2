@@ -47,58 +47,59 @@
         </div>
     </nav>
     <div class="container">
-		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-                    <h3 class="panel-title">Sensor Status Information</h3><br>
-			<div><button type="submit" class="btn btn-primary">Load Data</button></div>
-</form><br>
-				<form id="chart" action="/chart.html">
-				<div><button type="submit" class="btn btn-primary">Show Chart</button></div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+                <h3 class="panel-title">Sensor Status Information</h3><br>
+				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+					<div>
+						<button type="submit" class="btn btn-primary">Load Data</button>
+					</div>
 				</form>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <label for="sensorvalue">Sensor Output:</label>
-                        <div id="sensorvalue">
-                    </div><br>
-                    <div class="form-group">
-                        <label for="sensortimestamp">Database Timestamp (GMT): </label>
-                        <div id="sensortimestamp">
-                    </div><br>
-					<div class="form-group">
-                        <label for="id">Database Record ID Number: </label>
-                        <div id="id">
-                    </div><br>
-					<div class="form-group">
-                        <label for="name">Database Record Name:</label>
-                        <div id="name">
-                    </div><br>
-					<div class="form-group">
-                        <label for="deviceuser">Device Username (Sensor PC): </label>
-                        <div id="deviceuser">
-                    </div><br>
-					<div class="form-group">
-                        <label for="deviceos">Device Information (Sensor PC): </label>
-                        <div id="deviceos">
-                    </div><br>
-					<div class="form-group">
-                        <label for="devicename">User (Sensor PC): </label>
-                        <div id="devicename">
-                    </div>
-					<br>
-					<div class="form-group">
-                        <label for="loginuname">User (Salesforce User): </label>
-                        <div id="loginuname">
-                    </div>
-					<br>
-					<div class="form-group">
-                        <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
-                        <div id="_hc_lastop">
-                    </div>
+				<form id="chart" action="/chart.html">
+					<div>
+						<button type="submit" class="btn btn-primary">Show Chart</button>
+					</div>
+				</form>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="sensorvalue">Sensor Output:</label>
+                    <div id="sensorvalue">
+                </div><br>
+                <div class="form-group">
+                    <label for="sensortimestamp">Database Timestamp (GMT): </label>
+                    <div id="sensortimestamp">
+                </div><br>
+				<div class="form-group">
+                    <label for="id">Database Record ID Number: </label>
+                    <div id="id">
+                </div><br>
+				<div class="form-group">
+                    <label for="name">Database Record Name:</label>
+                    <div id="name">
+                </div><br>
+				<div class="form-group">
+                    <label for="deviceuser">Device Username (Sensor PC): </label>
+                    <div id="deviceuser">
+                </div><br>
+				<div class="form-group">
+                    <label for="deviceos">Device Information (Sensor PC): </label>
+                    <div id="deviceos">
+                </div><br>
+				<div class="form-group">
+                    <label for="devicename">User (Sensor PC): </label>
+                    <div id="devicename">
+                </div><br>
+				<div class="form-group">
+                <label for="loginuname">User (Salesforce User): </label>
+                    <div id="loginuname">
+                </div><br>
+				<div class="form-group">
+                    <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
+                    <div id="_hc_lastop">
                 </div>
             </div>
-        
+        </div>
     </div>
 </body>
 </html>
