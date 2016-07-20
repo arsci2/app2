@@ -13,8 +13,10 @@
         }
     </style>
     <script>
-		$("sensorvalue__c").text("0");
-		$("sensortimestanmp__c").text("--/--/-- --:--:--");
+		var sensorvalue = "0";
+		var sensortimestanmp = "--/--/-- --:--:--";
+		var id = "0";
+		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
@@ -24,8 +26,14 @@
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     success: function(data) {
-							$("#sensorvalue__c").text(data.rows[0].sensorvalue__c);
-							$("#sensortimestamp__c").text(data.rows[0].sensortimestamp__c);
+							$("#sensorvalue").text(data.rows[0].sensorvalue__c);
+							$("#sensortimestamp").text(data.rows[0].sensortimestamp__c);
+							$("#id").text(data.rows[0].id);
+							$("#name").text(data.rows[0].name);
+							$("#deviceuser").text(data.row[0].deviceuser__c);
+							$("#deviceos").text(data.row[0].deviceos__c);
+							$("#loginuname").text(data.row[0].loginuname__c);
+							$("#devicename").text(data.row[0].devicename__c);
 					}
                 })
             });
@@ -48,12 +56,36 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="sensorvalue__c">Sensor Data:</label>
-                        <div id="sensorvalue__c">
+                        <label for="sensorvalue">Sensor Data:</label>
+                        <div id="sensorvalue">
                     </div>
                     <div class="form-group">
-                        <label for="sensortimestamp__c">Time Stamp: </label>
-                        <div id="sensortimestamp__c">
+                        <label for="sensortimestamp">Time Stamp: </label>
+                        <div id="sensortimestamp">
+                    </div>
+					<div class="form-group">
+                        <label for="id">Record ID Number: </label>
+                        <div id="id">
+                    </div>
+					<div class="form-group">
+                        <label for="name">Record Name:</label>
+                        <div id="name">
+                    </div>
+					<div class="form-group">
+                        <label for="deviceuser">Device Username (Sensor PC): </label>
+                        <div id="deviceuser">
+                    </div>
+					<div class="form-group">
+                        <label for="deviceos">Device Information (Sensor PC): </label>
+                        <div id="deviceos">
+                    </div>
+					<div class="form-group">
+                        <label for="loginuname">User (Salesforce): </label>
+                        <div id="loginuname">
+                    </div>
+					<div class="form-group">
+                        <label for="devicename">User (Sensor PC): </label>
+                        <div id="devicename">
                     </div>
                 </div>
                 <div class="panel-footer">
