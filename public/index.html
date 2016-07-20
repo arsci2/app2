@@ -16,7 +16,7 @@
     <script>		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
-				event.preventDefault();
+	
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -50,12 +50,12 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
-				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+				<form id="phoneChangerForm" action="" method="get" style="width: 400px">
 					<div>
 						<button type="submit" class="btn btn-primary">Load Data</button>
 					</div>
-				</form>
-				<form id="chart" action="/chart.html">
+				</form><br><br>
+				<form id="phoneChangerForm" action="/chart.html">
 					<div>
 						<button type="submit" class="btn btn-primary">Show Chart</button>
 					</div>
