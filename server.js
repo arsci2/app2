@@ -21,7 +21,7 @@ app.get('/update', function(req, res) {
 				else {
 					// this will still cause jquery to display 'Record updated!'
 					// eventhough it was inserted
-                    res.json({sensorValue__c: sensorValue__c});
+                    res.json(result);
 				}
 			}
 		);
