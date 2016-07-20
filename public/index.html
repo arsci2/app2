@@ -13,6 +13,20 @@
             padding-top: 60px;
         }
     </style>
+	<script>
+							function showhide(){
+								$("sensorvalue").hide();
+								$("sensortimestamp").hide();
+								$("id").hide();
+								$("name").hide();
+								$("deviceuser").hide();
+								$("deviceos").hide();
+								$("loginuname").hide();
+								$("devicename").hide();
+								$("_hc_lastop").hide();
+								$("all").hide();
+							}
+						</script>
     <script>		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
@@ -40,7 +54,7 @@
 	
 		
 </head>
-<body onload="phoneChangerForm">
+<body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -49,7 +63,7 @@
         </div>
     </nav>
     <div class="container">
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="all">
 			<div class="panel-heading">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
@@ -60,19 +74,7 @@
 				
 					<div>
 						<button type="button" class="btn btn-primary" onclick="showhide()">Show Chart</button>
-						<script>
-							function showhide(){
-								$("sensorvalue").hide();
-								$("sensortimestamp").hide();
-								$("id").hide();
-								$("name").hide();
-								$("deviceuser").hide();
-								$("deviceos").hide();
-								$("loginuname").hide();
-								$("devicename").hide();
-								$("_hc_lastop").hide();
-							}
-						</script>
+						
 					</div>
 				
             </div>
