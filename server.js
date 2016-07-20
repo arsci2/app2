@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 
 app.get('/update', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
-        // watch for any connect issue
 		conn.query('SELECT * FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 1',
 			function(err, result) {
 				done();
@@ -19,8 +18,6 @@ app.get('/update', function(req, res) {
 					res.status(400).json({error: err.message});
 				}
 				else {
-					// this will still cause jquery to display 'Record updated!'
-					// eventhough it was inserted
                     res.json(result);
 				}
 			}
