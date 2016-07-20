@@ -23,7 +23,7 @@
                     dataType: "json",
                     success: function(data) {
 							$("#sensorvalue__c").text(sensorvalue__c);
-							$("#sensortimestamp__c").val("4");
+							$("#sensortimestamp__c").text("4");
 					}
                 })
             });
@@ -50,9 +50,10 @@
                         <div id="sensorvalue__c">
                     </div>
                     <div class="form-group">
-                        <label for="sensortimestamp__c">Time Stamp:</label>
+                        <label for="sensortimestamp__c">Time Stamp: 
                         <div id="sensortimestamp__c">
                     </div>
+					</label>
                 </div>
         <form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
             
