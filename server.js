@@ -1,67 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Light Sensor Data</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <style>
-        body {
-            padding-top: 60px;
-        }
-    </style>
-    <script>
-        $(function() {
-            $("#phoneChangerForm").submit(function(event) {
-				var id = $("id").val();
-                var sensorvalue__c = $("#sensorvalue__c").val();
-                var sensortimestamp__c = $("#sensortimestamp__c").val();
-                $.ajax({
-                    url: event.target.action,
-                    method: event.target.method,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(data) {
-							
-					}
-                })
-            });
-        });
-    </script>
-</head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/"></a>
-            </div>
-        </div>
-    </nav>
+var express = require('express');
+var bodyParser = require('body-parser');
+var pg = require('pg');
 
-    <div class="container">
-	<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Most Recent Data</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <label for="sensorvalue__c">Sensor Data:</label>
-                        <div id="sensorvalue__c">
-                    </div>
-                    <div class="form-group">
-                        <label for="sensortimestamp__c">Time Stamp:</label>
-                        <div id="sensortimestamp__c">
-                    </div>
-                </div>
-        <form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-            
-                <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary">Refresh</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</body>
-</html>
+var app = express();
+
+app.set('port', process.env.PORT || 5000);
+
+app.use(express.static('public'));
+app.use(bodyParser.json());
+
+app.get('/update', function(req, res) {
+    pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
+        // watch for any connect issue
+		conn.query('SELECT id, sensorValue__c, sensorTimestamp__c FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 1',
+			function(err, result) {
+				done();
+				if (err) {
+					res.status(400).json({error: err.message});
+				}
+				else {
+					// this will still cause jquery to display 'Record updated!'
+					// eventhough it was inserted
+                    res.json(result);
+				}
+			}
+		);
+	});
+});
+
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});

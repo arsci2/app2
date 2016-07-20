@@ -21,11 +21,6 @@
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
-                    data: JSON.stringify({
-						id: id,
-                        sensorvalue__c: sensorvalue__c,
-                        sensortimestamp__c: sensortimestamp__c,
-                    }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function(data) {
