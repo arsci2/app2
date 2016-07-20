@@ -15,7 +15,7 @@
     <script>
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
-			event.preventDefault();
+			
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -23,7 +23,7 @@
                     dataType: "json",
                     success: function(data) {
 							
-							$("#sensorvalue__c").text(data.sensorvalue__c);
+							$("#sensorvalue__c").text(data.JSON.sensorvalue__c);
 							$("#sensortimestamp__c").text("4");
 					}
                 })
@@ -42,7 +42,9 @@
 
     <div class="container">
 	<div class="panel panel-default">
-                <div class="panel-heading">
+                
+        <form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+            <div class="panel-heading">
                     <h3 class="panel-title">Most Recent Data</h3>
                 </div>
                 <div class="panel-body">
@@ -56,8 +58,6 @@
                     </div>
 					
                 </div>
-        <form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-            
                 <div class="panel-footer">
                     <button type="submit" class="btn btn-primary">Refresh</button>
                 </div>
