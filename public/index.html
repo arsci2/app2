@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,18 +15,16 @@
     <script>
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
-
 				var ident = $("ident").val();
                 var sensorval = $("#sensorval").val();
                 var timestamp = $("#timestamp").val();
-
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
                     data: JSON.stringify({
-						ident: ident,
-                        sensorval: sensorval,
-                        timestamp: timestamp,
+						ident: id,
+                        sensorval: sensorvalue__c,
+                        timestamp: sensortimestamp__c,
                     }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
@@ -39,7 +36,6 @@
                 })
             });
         });
-
     </script>
 </head>
 <body>
