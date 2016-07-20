@@ -22,8 +22,8 @@
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     success: function(data) {
-							$("#sensorvalue__c").text(data.length());
-							$("#sensortimestamp__c").text(data);
+							$("#sensorvalue__c").text(data);
+							$("#sensortimestamp__c").text(data.rows[0].id);
 					}
                 })
             });
