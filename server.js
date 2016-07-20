@@ -21,11 +21,10 @@
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
-                    data: JSON.stringify({
-                    }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    success: function(data) {	
+                    success: function(data) {
+							
 					}
                 })
             });
