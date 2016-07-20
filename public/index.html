@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Light Sensor Data</title>
+    <title>Sensor Status Information</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
@@ -48,15 +48,15 @@
 		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-                    <h3 class="panel-title">Most Recent Sensor Data</h3>
+                    <h3 class="panel-title">Latest Sensor Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="sensorvalue">Sensor Data:</label>
+                        <label for="sensorvalue">Sensor Output:</label>
                         <div id="sensorvalue">
                     </div><br>
                     <div class="form-group">
-                        <label for="sensortimestamp">Time Stamp: </label>
+                        <label for="sensortimestamp">Database Time Stamp (GMT): </label>
                         <div id="sensortimestamp">
                     </div><br>
 					<div class="form-group">
@@ -64,7 +64,7 @@
                         <div id="id">
                     </div><br>
 					<div class="form-group">
-                        <label for="name">Record Name:</label>
+                        <label for="name">Database Record Name:</label>
                         <div id="name">
                     </div><br>
 					<div class="form-group">
@@ -81,7 +81,7 @@
                     </div>
 					<br>
 					<div class="form-group">
-                        <label for="loginuname">User (Salesforce): </label>
+                        <label for="loginuname">User (Salesforce User): </label>
                         <div id="loginuname">
                     </div>
                 </div>

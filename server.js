@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get('/update', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
-		conn.query('SELECT * FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 1',
+		conn.query('SELECT * FROM salesforce.sensorData__c ORDER BY id DESC LIMIT 2',
 			function(err, result) {
 				done();
 				if (err) {
