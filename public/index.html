@@ -29,8 +29,6 @@
 			$("#syn").toggle();
 			$("#os").toggle();
 			$("#gv").toggle();
-			$("#histtitle").toggle();
-			$("#dataview").show();
 			$("#myChart").hide();
 			
 		}
@@ -49,8 +47,6 @@
 			$("#syn").show();
 			$("#os").show();
 			$("#gv").show();
-			$("#histtitle").show();
-			$("#dataview").show();
 			$("#myChart").show();
 			
 		}
@@ -150,10 +146,10 @@
                     <div id="_hc_lastop">
                 </div>
             	<div class="form-group" id="gv">
+					<canvas id="myChart" width="400" height="400"></canvas>
 					<script>
-						<canvas id="myChart" width="400" height="400"></canvas>
-							var ctx = document.getElementById("myChart");
-							var myChart = new Chart(ctx, {
+						var ctx = document.getElementById("myChart");
+						var myChart = new Chart(ctx, {
 							type: 'bar',
 							data: {
 								labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
