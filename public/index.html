@@ -49,11 +49,12 @@
 		}
 	</script>
     <script>
-		var numdata[20] = 0;
-		var datedata[20] = "0";
+		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
+				var numdata[20] = 0;
+				var datedata[20] = "0";
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
