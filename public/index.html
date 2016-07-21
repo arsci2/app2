@@ -60,8 +60,8 @@
 						var labels1 = [];
 						var data1 = [];
 						for(var l=0; l<20; l++){
-							labels1[l] = (data.rows[l].localtime__c);
-							data1[l] = (l);
+							data1[l] = (data.rows[l].sensorvalue__c);
+							labels[l] = (l);
 						}
 						var ctx = document.getElementById("myChart").getContext("2d");
 						var myChart = new Chart(ctx , {
