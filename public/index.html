@@ -14,8 +14,7 @@
             padding-top: 60px;
         }
     </style>
-	var numdata[20] = 0;
-	var datedata[20] = "0";
+
 	<script>
 		function showhide(){
 		$("#dataview").show();
@@ -35,6 +34,8 @@
 	</script>
 	<script>
 		function defaultView(){
+			var numdata[20] = 0;
+			var datedata[20] = "0";
 			$("#dataview").show();
 			$("#sv").show();
 			$("#lt").show();
@@ -77,8 +78,8 @@
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 						for(k=0;k<20;k++){
-							$("#numdata")[k].val(data.rows[k].sensorvalue__c);
-							$("#datedata")[k].text(k+1);
+							numdata[k] = data.rows[k].sensorvalue__c;
+							datedata[k] = (k+1);
 						}
 					}
                 })
