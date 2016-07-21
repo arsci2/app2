@@ -57,8 +57,8 @@
 									
 						
 						for(var l=0; l<20; l++){
-							lables1.push(json[l].localtime__c);
-							data1.push(json[l].sensorvalue__c);
+							lables1.push(data.rows[l].localtime__c);
+							data1.push(data.rows[l].sensorvalue__c);
 						}
 					
 						myChart.update(2000);
