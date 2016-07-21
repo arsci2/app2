@@ -14,23 +14,31 @@
         }
     </style>
 	<script>
-							function showhide(){
-								$("#sensorvalue").hide();
-								$("#sensortimestamp").hide();
-								$("#id").hide();
-								$("#name").hide();
-								$("#deviceuser").hide();
-								$("#deviceos").hide();
-								$("#loginuname").hide();
-								$("#devicename").hide();
-								$("#_hc_lastop").hide();
-								$("#all").hide();
-							}
-						</script>
+		function showhide(){
+			$("#sensorvalue").hide();
+			$("#sensortimestamp").hide();
+			$("#id").hide();
+			$("#name").hide();
+			$("#deviceuser").hide();
+			$("#deviceos").hide();
+			$("#loginuname").hide();
+			$("#devicename").hide();
+			$("#_hc_lastop").hide();
+			$("#data_view").hide();
+		}
+	</script>
+	<script>
+		function default-view(){
+			$("#graph_view").hide();
+			$("#data_view").show();
+		}
+	</script>
     <script>		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
+				$("#graph_view").hide();
+				$("#data_view").show();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -46,6 +54,11 @@
 						$("#loginuname").text(data.rows[0].loginuname__c);
 						$("#devicename").text(data.rows[0].devicename__c);
 						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
+						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
+						$("#deviceIPint").text(data.rows[0].deviceIPint__c);
+						$("#deviceIPext").text(data.rows[0].deviceIPext__c);
+						$("#localtime").text(data.rows[0].localtimestamppst__c);
+						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 					}
                 })
             });
@@ -54,7 +67,7 @@
 	
 		
 </head>
-<body>
+<body onload = "default-view()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -63,7 +76,7 @@
         </div>
     </nav>
     <div class="container">
-		<div class="panel panel-default" id="all">
+		<div class="panel panel-default" id="data_view">
 			<div class="panel-heading">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
@@ -71,17 +84,18 @@
 						<button type="submit" class="btn btn-primary">Load Data</button>
 					</div>
 				</form><br>
-				
 					<div>
 						<button type="submit" class="btn btn-primary" onclick="showhide()">Show Chart</button>
-						
 					</div>
-				
             </div>
             <div class="panel-body">
                 <div class="form-group">
                     <label for="sensorvalue">Sensor Output:</label>
                     <div id="sensorvalue">
+                </div><br>
+				<div class="form-group">
+                    <label for="localtime">Local Timestamp (PST): </label>
+                    <div id="localtime">
                 </div><br>
                 <div class="form-group">
                     <label for="sensortimestamp">Database Timestamp (GMT): </label>
@@ -100,16 +114,16 @@
                     <div id="deviceuser">
                 </div><br>
 				<div class="form-group">
+                    <label for="deviceipint">Device IP (External) (Sensor PC): </label>
+                    <div id="deviceipint">
+                </div><br>
+				<div class="form-group">
+                    <label for="deviceipext">Device IP (Internal) (Sensor PC): </label>
+                    <div id="deviceipext">
+                </div><br>
+				<div class="form-group">
                     <label for="deviceos">Device Information (Sensor PC): </label>
                     <div id="deviceos">
-                </div><br>
-				<div class="form-group">
-                    <label for="devicename">User (Sensor PC): </label>
-                    <div id="devicename">
-                </div><br>
-				<div class="form-group">
-                <label for="loginuname">User (Salesforce User): </label>
-                    <div id="loginuname">
                 </div><br>
 				<div class="form-group">
                     <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
@@ -117,6 +131,15 @@
                 </div>
             </div>
         </div>
+		<div class="panel panel-default" id="graph_view">
+			<div class="panel-heading">
+                <h3 class="panel-title">Sensor Status Information</h3><br>
+				<div class="form-group">
+                    <label for="deviceipext">Device IP (Internal) (Sensor PC): </label>
+                    <div id="deviceipext">
+                </div>
+            </div>
+		</div>
     </div>
 </body>
 </html>
