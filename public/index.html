@@ -14,10 +14,14 @@
             padding-top: 60px;
         }
     </style>
+	<script>
+		function defaultView(){
+			$("#dataview").hide();		
     <script>
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
+				$("#dataview").show();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -38,7 +42,9 @@
 						$("#deviceipext").text(data.rows[0].deviceipext__c);
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
-								
+						
+						
+						
 						var labels1 = [];
 						var data1 = [];
 						for(var l=0; l<20; l++){
