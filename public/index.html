@@ -16,39 +16,13 @@
     </style>
 
 	<script>
-		function showhide(){
-			$("#dataview").show();
-			$("#sv").toggle();
-			$("#lt").toggle();
-			$("#st").toggle();
-			$("#did").toggle();
-			$("#dn").toggle();
-			$("#du").toggle();
-			$("#ipi").toggle();
-			$("#ipe").toggle();
-			$("#syn").toggle();
-			$("#os").toggle();
-			$("#gv").toggle();
-			$("#myChart").toggle();
+		function refreshChart(){
+			
 		}
 	</script>
 	<script>
 		function defaultView(){
-			var numdata = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-			$("#dataview").show();
-			$("#sv").show();
-			$("#lt").show();
-			$("#st").show();
-			$("#did").show();
-			$("#dn").show();
-			$("#du").show();
-			$("#ipi").show();
-			$("#ipe").show();
-			$("#syn").show();
-			$("#os").show();
-			$("#gv").show();
-			$("#myChart").hide();
-			
+			var numdata = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];		
 			
 		}
 	</script>
@@ -127,7 +101,7 @@
 					</div>
 				</form><br>
 				<div>
-					<button type="submit" class="btn btn-primary" onclick="showhide()">Toggle Chart</button>
+					<button type="submit" class="btn btn-primary" onclick="refreshChart()">Refresh Chart</button>
 				</div>
             </div>
             <div class="panel-body" id="dataview">
@@ -179,7 +153,7 @@
 						var myChart = new Chart(ctx , {
 							type: 'line',
 							data:{ 
-								labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+								labels: numdata,
 								datasets:[{
 									label: '# of Votes',
 									data: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] 
