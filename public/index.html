@@ -8,11 +8,21 @@
     <title>Sensor Status Information</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="/chart/dist/Chart.min.js"></script>
     <style>
         body {
             padding-top: 60px;
         }
     </style>
+	
+
+<script>
+  // Get the context of the canvas element we want to select
+  var ctx = document.getElementById("myChart").getContext("2d");
+
+  // Instantiate a new chart using 'data' (defined below)
+  var myChart = new Chart(ctx).Line(data);
+</script>
 	<script>
 		function showhide(){
 			$("#sv").toggle();
@@ -25,7 +35,8 @@
 			$("#ipe").toggle();
 			$("#syn").toggle();
 			$("#os").toggle();
-			$("#graph_view").toggle();
+			$("#graphview").toggle();
+			$("#histtitle").toggle();
 		}
 	</script>
 	<script>
@@ -40,7 +51,8 @@
 			$("#ipe").show();
 			$("#syn").show();
 			$("#os").show();
-			$("#graph_view").hide();
+			$("#graphview").hide();
+			$("#histtitle").hide();
 		}
 	</script>
     <script>		
@@ -72,6 +84,31 @@
             });
         });
     </script>
+	var data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "My First dataset",
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [65, 59, 80, 81, 56, 55, 40]
+      },
+      {
+        label: "My Second dataset",
+        fillColor: "rgba(151,187,205,0.2)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: [28, 48, 40, 19, 86, 27, 90]
+      }
+    ]
+  };
 </head>
 <body onload = "defaultView()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -102,6 +139,7 @@
 				<div class="form-group" id="lt">
                     <label for="localtime">Local Timestamp (PST): </label>
                     <div id="localtime">
+					<canvas id="myChart" width="740" height="200"></canvas>
                 </div><br>
                 <div class="form-group" id="st">
                     <label for="sensortimestamp">Database Timestamp (GMT): </label>
@@ -135,8 +173,8 @@
                     <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
                     <div id="_hc_lastop">
                 </div>
-            	<div class="form-group" id="graph_view">
-					<h3 class="panel-title">Historical Data</h3><br>
+            	<div class="form-group" id="graphview">
+					<h3 class="panel-title" id="histtitle">Historical Data</h3><br>
 				</div>
 			</div>	
         </div>
