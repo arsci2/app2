@@ -37,8 +37,6 @@
 				labels1 = [];
 				data1 = [];
                 $.ajax({
-					labels1 = [];
-					data1 = [];
                     url: event.target.action,
                     method: event.target.method,
                     contentType: 'application/json; charset=utf-8',
@@ -60,10 +58,7 @@
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 									
 						
-						for(var l=0; l<20; l++){
-							lables1.push(data.rows[l].localtime__c);
-							data1.push(data.rows[l].sensorvalue__c);
-						}
+						
 					
 						myChart.update(2000);
 						
@@ -140,6 +135,12 @@
             	<div class="form-group" id="gv">
 					<canvas id="myChart" width="400" height="400"></canvas>
 					<script>
+						labels1 = [];
+						data1 = [];
+						for(var l=0; l<20; l++){
+							lables1.push(data.rows[l].localtime__c);
+							data1.push(data.rows[l].sensorvalue__c);
+						}
 						var ctx = document.getElementById("myChart").getContext("2d");
 						var myChart = new Chart(ctx , {
 							type: 'line',
