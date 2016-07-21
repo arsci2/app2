@@ -28,7 +28,7 @@
 		}
 	</script>
 	<script>
-		function default-view(){
+		function defaultView(){
 			$("#graph_view").hide();
 			$("#data_view").show();
 		}
@@ -55,8 +55,8 @@
 						$("#devicename").text(data.rows[0].devicename__c);
 						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
 						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
-						$("#deviceIPint").text(data.rows[0].deviceIPint__c);
-						$("#deviceIPext").text(data.rows[0].deviceIPext__c);
+						$("#deviceIPint").text(data.rows[0].deviceipint__c);
+						$("#deviceIPext").text(data.rows[0].deviceipext__c);
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 					}
@@ -64,10 +64,8 @@
             });
         });
     </script>
-	
-		
 </head>
-<body onload = "default-view()">
+<body onload = "defaultView()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -76,7 +74,7 @@
         </div>
     </nav>
     <div class="container">
-		<div class="panel panel-default" id="data_view">
+		<div class="panel panel-default">
 			<div class="panel-heading">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
@@ -88,7 +86,7 @@
 						<button type="submit" class="btn btn-primary" onclick="showhide()">Show Chart</button>
 					</div>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" id="data_view">
                 <div class="form-group">
                     <label for="sensorvalue">Sensor Output:</label>
                     <div id="sensorvalue">
@@ -131,8 +129,8 @@
                 </div>
             </div>
         </div>
-		<div class="panel panel-default" id="graph_view">
-			<div class="panel-heading">
+		<div class="panel panel-default">
+			<div class="panel-body" id="graph_view">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
 				<div class="form-group">
                     <label for="deviceipext">Device IP (Internal) (Sensor PC): </label>
