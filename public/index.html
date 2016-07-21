@@ -48,7 +48,9 @@
 			$("#myChart").show();
 		}
 	</script>
-    <script>		
+    <script>
+		var numdata[20] = 0;
+		var datedata[20] = "0";
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
@@ -73,7 +75,7 @@
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 						for(k=0;k<20;k++){
-							$("#numdata")[k].text(data.rows[k].sensorvalue__c);
+							$("#numdata")[k].val(data.rows[k].sensorvalue__c);
 							$("#datedata")[k].text(k+1);
 						}
 					}
