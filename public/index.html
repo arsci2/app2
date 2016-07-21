@@ -17,7 +17,7 @@
 
 	<script>
 		function refreshChart(){
-			
+			myChart.update(2000);
 		}
 	</script>
 	<script>
@@ -73,8 +73,29 @@
 						$("a18").val(data.rows[17].sensorvalue__c);
 						$("a19").val(data.rows[18].sensorvalue__c);
 						$("a20").val(data.rows[19].sensorvalue__c);
+						
+						$("b1").val(data.rows[0].localtime__c);
+						$("b2").val(data.rows[1].localtime__c);
+						$("b3").val(data.rows[2].localtime__c);
+						$("b4").val(data.rows[3].localtime__c);
+						$("b5").val(data.rows[4].localtime__c);
+						$("b6").val(data.rows[5].localtime__c);
+						$("b7").val(data.rows[6].localtime__c);
+						$("b8").val(data.rows[7].localtime__c);
+						$("b9").val(data.rows[8].localtime__c);
+						$("b10").val(data.rows[9].localtime__c);
+						$("b11").val(data.rows[10].localtime__c);
+						$("b12").val(data.rows[11].localtime__c);
+						$("b13").val(data.rows[12].localtime__c);
+						$("b14").val(data.rows[13].localtime__c);
+						$("b15").val(data.rows[14].localtime__c);
+						$("b16").val(data.rows[15].localtime__c);
+						$("b17").val(data.rows[16].localtime__c);
+						$("b18").val(data.rows[17].localtime__c);
+						$("b19").val(data.rows[18].localtime__c);
+						$("b20").val(data.rows[19].localtime__c);
 					
-					
+						myChart.update(2000);
 						
 					}
                 })
@@ -153,7 +174,10 @@
 						var myChart = new Chart(ctx , {
 							type: 'line',
 							data:{ 
-								labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+								labels: [$("#b1"),$("#b2"),$("#b3"),$("#b4"),$("#b5"),
+											$("#b6"),$("#b7"),$("#b8"),$("#b9"),$("#b10"),
+											$("#b11"),$("#b12"),$("#b13"),$("#b14"),$("#b15"),
+											$("#b16"),$("#b17"),$("#b18"),$("#b19"),$("#b20")],
 								datasets:[{
 									label: '# of Votes',
 									data:  [$("#a1"),$("#a2"),$("#a3"),$("#a4"),$("#a5"),
