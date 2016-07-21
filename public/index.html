@@ -23,7 +23,6 @@
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
-				$("#dataview").show();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -45,7 +44,7 @@
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 						
-						
+						$("#dataview").show();
 						
 						var labels1 = [];
 						var data1 = [];
