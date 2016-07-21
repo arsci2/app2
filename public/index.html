@@ -135,10 +135,10 @@
             	<div class="form-group" id="gv">
 					<canvas id="myChart" width="400" height="400"></canvas>
 					<script>
-						labels1 = [];
-						data1 = [];
+						var labels1 = [];
+						var data1 = [];
 						for(var l=0; l<20; l++){
-							lables1.push(data.rows[l].localtime__c);
+							labels1.push(data.rows[l].localtime__c);
 							data1.push(data.rows[l].sensorvalue__c);
 						}
 						var ctx = document.getElementById("myChart").getContext("2d");
