@@ -8,34 +8,15 @@
     <title>Sensor Status Information</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="/chart/dist/Chart.bundle.js"></script>
     <style>
         body {
             padding-top: 60px;
         }
     </style>
-
-	<script>
-		function refreshChart(){
-			myChart.update(2000);
-		}
-	</script>
-	<script>
-		function defaultView(){
-			var numdata = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];		
-			labels1 = [];
-			data1 = [];
-		}
-	</script>
-    <script>
-		labels1 = [];
-		data1 = [];
-		
+    <script>		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
-				event.preventDefault();
-				labels1 = [];
-				data1 = [];
+				
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -51,40 +32,13 @@
 						$("#loginuname").text(data.rows[0].loginuname__c);
 						$("#devicename").text(data.rows[0].devicename__c);
 						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
-						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
-						$("#deviceipint").text(data.rows[0].deviceipint__c);
-						$("#deviceipext").text(data.rows[0].deviceipext__c);
-						$("#localtime").text(data.rows[0].localtimestamppst__c);
-						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
-								
-						var labels1 = [];
-						var data1 = [];
-						for(var l=0; l<20; l++){
-							data1[l] = (data.rows[l].sensorvalue__c);
-							labels1[l] = (l);
-						}
-						var ctx = document.getElementById("myChart").getContext("2d");
-						var myChart = new Chart(ctx , {
-							type: 'line',
-							data:{ 
-								labels: labels1,
-								datasets:[{
-									label: '# of Votes',
-									data:  data1
-								}]
-							}
-						});
-					
-						myChart.update(2000);
-						
 					}
                 })
             });
         });
     </script>
-
 </head>
-<body onload = "defaultView()">
+<body onload="phoneChangerForm">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -96,62 +50,50 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
-				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+				<form id="phoneChangerForm" action="" method="get" style="width: 400px">
 					<div>
 						<button type="submit" class="btn btn-primary">Load Data</button>
 					</div>
 				</form><br>
-				<div>
-					<button type="submit" class="btn btn-primary" onclick="refreshChart()">Refresh Chart</button>
-				</div>
             </div>
-            <div class="panel-body" id="dataview">
-                <div class="form-group" id="sv">
+            <div class="panel-body">
+                <div class="form-group">
                     <label for="sensorvalue">Sensor Output:</label>
                     <div id="sensorvalue">
                 </div><br>
-				<div class="form-group" id="lt">
-                    <label for="localtime">Local Timestamp (PST): </label>
-                    <div id="localtime">
-					
-                </div><br>
-                <div class="form-group" id="st">
+                <div class="form-group">
                     <label for="sensortimestamp">Database Timestamp (GMT): </label>
                     <div id="sensortimestamp">
                 </div><br>
-				<div class="form-group" id="did">
+				<div class="form-group">
                     <label for="id">Database Record ID Number: </label>
                     <div id="id">
                 </div><br>
-				<div class="form-group" id="dn">
+				<div class="form-group">
                     <label for="name">Database Record Name:</label>
                     <div id="name">
                 </div><br>
-				<div class="form-group" id="du">
+				<div class="form-group">
                     <label for="deviceuser">Device Username (Sensor PC): </label>
                     <div id="deviceuser">
                 </div><br>
-				<div class="form-group" id="ipi">
-                    <label for="deviceipext">Device IP (External) (Sensor PC): </label>
-                    <div id="deviceipext">
-                </div><br>
-				<div class="form-group" id="ipe">
-                    <label for="deviceipint">Device IP (Internal) (Sensor PC): </label>
-                    <div id="deviceipint">
-                </div><br>
-				<div class="form-group" id="os">
+				<div class="form-group">
                     <label for="deviceos">Device Information (Sensor PC): </label>
                     <div id="deviceos">
                 </div><br>
-				<div class="form-group" id="syn">
+				<div class="form-group">
+                    <label for="devicename">User (Sensor PC): </label>
+                    <div id="devicename">
+                </div><br>
+				<div class="form-group">
+                <label for="loginuname">User (Salesforce User): </label>
+                    <div id="loginuname">
+                </div><br>
+				<div class="form-group">
                     <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
                     <div id="_hc_lastop">
                 </div>
-            	<div class="form-group" id="gv">
-					<canvas id="myChart" width="400" height="400"></canvas>
-					
-				</div>
-			</div>	
+            </div>
         </div>
     </div>
 </body>
