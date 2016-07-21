@@ -17,7 +17,7 @@
 
 	<script>
 		function showhide(){
-		$("#dataview").show();
+			$("#dataview").show();
 			$("#sv").toggle();
 			$("#lt").toggle();
 			$("#st").toggle();
@@ -76,9 +76,28 @@
 						$("#deviceipext").text(data.rows[0].deviceipext__c);
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
-						for(k=0;k<20;k++){
-							numdata[k] = data.rows[k].sensorvalue__c;
-						}
+						
+						$("a1").val(data.rows[0].sensorvalue__c);
+						$("a2").val(data.rows[1].sensorvalue__c);
+						$("a3").val(data.rows[2].sensorvalue__c);
+						$("a4").val(data.rows[3].sensorvalue__c);
+						$("a5").val(data.rows[4].sensorvalue__c);
+						$("a6").val(data.rows[5].sensorvalue__c);
+						$("a7").val(data.rows[6].sensorvalue__c);
+						$("a8").val(data.rows[7].sensorvalue__c);
+						$("a9").val(data.rows[8].sensorvalue__c);
+						$("a10").val(data.rows[9].sensorvalue__c);
+						$("a11").val(data.rows[10].sensorvalue__c);
+						$("a12").val(data.rows[11].sensorvalue__c);
+						$("a13").val(data.rows[12].sensorvalue__c);
+						$("a14").val(data.rows[13].sensorvalue__c);
+						$("a15").val(data.rows[14].sensorvalue__c);
+						$("a16").val(data.rows[15].sensorvalue__c);
+						$("a17").val(data.rows[16].sensorvalue__c);
+						$("a18").val(data.rows[17].sensorvalue__c);
+						$("a19").val(data.rows[18].sensorvalue__c);
+						$("a20").val(data.rows[19].sensorvalue__c);
+					
 					}
                 })
             });
@@ -157,7 +176,7 @@
 							labels: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],
 							datasets: [{
 								label: '# of Votes',
-								data: numdata,
+								data: [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20]
 							}]
 						};
 						var ctx = document.getElementById("myChart").getContext("2d");
