@@ -15,16 +15,8 @@
     </style>
 	<script>
 		function showhide(){
-			$("#sensorvalue").hide();
-			$("#sensortimestamp").hide();
-			$("#id").hide();
-			$("#name").hide();
-			$("#deviceuser").hide();
-			$("#deviceos").hide();
-			$("#loginuname").hide();
-			$("#devicename").hide();
-			$("#_hc_lastop").hide();
-			$("#data_view").hide();
+			$("#graph_view").toggle();
+			$("#data_view").toggle();
 		}
 	</script>
 	<script>
@@ -83,7 +75,7 @@
 					</div>
 				</form><br>
 					<div>
-						<button type="submit" class="btn btn-primary" onclick="showhide()">Show Chart</button>
+						<button type="submit" class="btn btn-primary" onclick="showhide()">Toggle Chart</button>
 					</div>
             </div>
             <div class="panel-body" id="data_view">
@@ -130,6 +122,8 @@
             </div>
         </div>
 		<div class="panel panel-default">
+			<div class="panel-heading">
+			</div>
 			<div class="panel-body" id="graph_view">
                 <h3 class="panel-title">Sensor Status Information</h3><br>
 				<div class="form-group">
