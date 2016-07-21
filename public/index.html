@@ -28,7 +28,7 @@
 			$("#ipe").toggle();
 			$("#syn").toggle();
 			$("#os").toggle();
-			$("#graphview").toggle();
+			$("#gv").toggle();
 			$("#histtitle").toggle();
 			$("#dataview").show();
 			
@@ -47,7 +47,7 @@
 			$("#ipe").show();
 			$("#syn").show();
 			$("#os").show();
-			$("#graphview").hide();
+			$("#gv").hide();
 			$("#histtitle").hide();
 			$("#dataview").show();
 			
@@ -147,7 +147,8 @@
                     <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
                     <div id="_hc_lastop">
                 </div>
-            	<div class="form-group" id="graphview">
+            	<div class="form-group" id="gv">
+				<div id="graphview">
 				<script>
 				<canvas id="myChart" width="400" height="400"></canvas>
 		var ctx = document.getElementById("myChart");
