@@ -56,9 +56,24 @@
 						$("#deviceipext").text(data.rows[0].deviceipext__c);
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
-									
-						
-						
+								
+						var labels1 = [];
+						var data1 = [];
+						for(var l=0; l<20; l++){
+							labels1.push(data.rows[l].localtime__c);
+							data1.push(data.rows[l].sensorvalue__c);
+						}
+						var ctx = document.getElementById("myChart").getContext("2d");
+						var myChart = new Chart(ctx , {
+							type: 'line',
+							data:{ 
+								labels: labels1,
+								datasets:[{
+									label: '# of Votes',
+									data:  data1
+								}]
+							}
+						});
 					
 						myChart.update(2000);
 						
@@ -134,25 +149,7 @@
                 </div>
             	<div class="form-group" id="gv">
 					<canvas id="myChart" width="400" height="400"></canvas>
-					<script>
-						var labels1 = [];
-						var data1 = [];
-						for(var l=0; l<20; l++){
-							labels1.push(data.rows[l].localtime__c);
-							data1.push(data.rows[l].sensorvalue__c);
-						}
-						var ctx = document.getElementById("myChart").getContext("2d");
-						var myChart = new Chart(ctx , {
-							type: 'line',
-							data:{ 
-								labels: labels1,
-								datasets:[{
-									label: '# of Votes',
-									data:  data1
-								}]
-							}
-						});
-					</script>
+					
 				</div>
 			</div>	
         </div>
