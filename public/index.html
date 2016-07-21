@@ -15,22 +15,36 @@
     </style>
 	<script>
 		function showhide(){
-			$("#graph_view").toggle();
-			$("#data_view").toggle();
+			$("#sensorvalue").toggle();
+			$("#localtime").toggle();
+			$("#sensortimestamp").toggle();
+			$("#id").toggle();
+			$("#name").toggle();
+			$("#deviceuser").toggle();
+			$("#deviceipint").toggle();
+			$("#deviceipext").toggle();
+			$("#_hc_lastop").toggle();
+			$("#deviceos").toggle();
 		}
 	</script>
 	<script>
 		function defaultView(){
-			$("#graph_view").hide();
-			$("#data_view").show();
+			$("#sensorvalue").show();
+			$("#localtime").show();
+			$("#sensortimestamp").show();
+			$("#id").show();
+			$("#name").show();
+			$("#deviceuser").show();
+			$("#deviceipint").hide();
+			$("#deviceipext").hide();
+			$("#_hc_lastop").hide();
+			$("#deviceos").hide();
 		}
 	</script>
     <script>		
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
-				$("#graph_view").hide();
-				$("#data_view").show();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -122,19 +136,5 @@
             </div>
         </div>
     </div>
-	</div>
-	<div class="container">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-			<h3 class="panel-title">Sensor Status Information</h3><br>
-			</div>
-			<div class="panel-body" id="graph_view">
-				<div class="form-group">
-                    <label for="deviceipext">Device IP (Internal) (Sensor PC): </label>
-                    <div id="deviceipext">
-                </div>
-            </div>
-		</div>
-	</div>
 </body>
 </html>
