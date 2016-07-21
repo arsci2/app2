@@ -47,8 +47,8 @@
 						$("#devicename").text(data.rows[0].devicename__c);
 						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
 						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
-						$("#deviceIPint").text(data.rows[0].deviceipint__c);
-						$("#deviceIPext").text(data.rows[0].deviceipext__c);
+						$("#deviceipint").text(data.rows[0].deviceipint__c);
+						$("#deviceipext").text(data.rows[0].deviceipext__c);
 						$("#localtime").text(data.rows[0].localtimestamppst__c);
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 					}
@@ -121,17 +121,19 @@
                 </div>
             </div>
         </div>
+    </div>
+	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
+			<h3 class="panel-title">Sensor Status Information</h3><br>
 			</div>
 			<div class="panel-body" id="graph_view">
-                <h3 class="panel-title">Sensor Status Information</h3><br>
 				<div class="form-group">
                     <label for="deviceipext">Device IP (Internal) (Sensor PC): </label>
                     <div id="deviceipext">
                 </div>
             </div>
 		</div>
-    </div>
+	</div>
 </body>
 </html>
