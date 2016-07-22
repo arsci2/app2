@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sensor Status Information</title>
+    <title>Light Sensor Information</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="/chart/dist/Chart.bundle.js"></script>
@@ -104,16 +104,16 @@
     <div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-                <h3 class="panel-title">Sensor Status Information</h3><br>
+                <h3 class="panel-title">Light Sensor Information</h3><br>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 					<div>
-						<button type="submit" class="btn btn-primary">Load Data</button>
+						<button type="submit" class="btn btn-primary">Load Recent Data</button>
 					</div>
 				</form>
             </div>
             <div class="panel-body" id="dataview">
                 <div class="form-group" id="sv">
-                    <label for="sensorvalue">Sensor Output:</label>
+                    <label for="sensorvalue">Brightness Level (LUX):</label>
                     <div id="sensorvalue">
                 </div><br>
 				<div class="form-group" id="lt">
