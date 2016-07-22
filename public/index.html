@@ -55,7 +55,7 @@
 						labels1[0] = "Current: " + labels1[0];
 						
 						var ctx = document.getElementById("myChart").getContext("2d");
-						ctx.canvas.height = 200;
+						ctx.canvas.height = 20;
 						var myChart = new Chart(ctx , {
 							type: 'line',
 							data: { 
@@ -77,8 +77,8 @@
 								scales: {
 									yAxes: [{
 										ticks: {
-											min: 30,
-											max: 70
+											min: 40,
+											max: 60
 										}
 									}]
 								}
