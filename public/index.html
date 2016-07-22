@@ -50,7 +50,7 @@
 						var data1 = [];
 						for(var l=0; l<20; l++){
 							data1[l] = (data.rows[l].sensorvalue__c);
-							labels1[l] = (data.rows[l].localtime__c);
+							labels1[l] = (data.rows[l].localtimestamppst__c);
 						}
 						var ctx = document.getElementById("myChart").getContext("2d");
 						var myChart = new Chart(ctx , {
@@ -58,6 +58,7 @@
 							data: { 
 								labels: labels1,
 								datasets:[{
+									label: 'Light Intensity (LUX)',
 									data:  data1
 								}]
 							},
@@ -146,9 +147,17 @@
 				<div class="form-group" id="syn">
                     <label for="_hc_lastop">Database Sync Status (Salesforce/Heroku): </label>
                     <div id="_hc_lastop">
-                </div>
+                </div><br>
+				<div class="form-group" id="mcu">
+                    <label for="mcuinfo">Microcontroller (MCU): </label>
+                    <div id="mcuinfo">
+                </div><br>
+				<div class="form-group" id="sens">
+                    <label for="sensorinfo">Sensor Type: </label>
+                    <div id="sensorinfo">
+                </div>				
             	<div class="form-group" id="gv">
-					<canvas id="myChart" width="200" height="200"></canvas>
+					<canvas id="myChart" width="100" height="100"></canvas>
 				</div>
 			</div>	
         </div>
