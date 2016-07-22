@@ -50,7 +50,7 @@
 						var data1 = [];
 						for(var l=0; l<20; l++){
 							data1[l] = (data.rows[l].sensorvalue__c);
-							labels1[l] = (l);
+							labels1[l] = (data.rows[l].localtime__c);
 						}
 						var ctx = document.getElementById("myChart").getContext("2d");
 						var myChart = new Chart(ctx , {
@@ -58,9 +58,25 @@
 							data:{ 
 								labels: labels1,
 								datasets:[{
-									label: 'Past Data',
 									data:  data1
 								}]
+							}
+							options: {
+								responsive: true
+								hover: {
+									mode: 'label'
+								}
+								title: {
+									display: true,
+									text: 'Last 20 Brightness Values'
+								}
+								scales: {
+									xAxes: [{
+										ticks: {
+											min: 30
+										}
+									}]
+								}
 							}
 						});
 						myChart.update(2000);	
@@ -131,7 +147,7 @@
                     <div id="_hc_lastop">
                 </div>
             	<div class="form-group" id="gv">
-					<canvas id="myChart" width="400" height="400"></canvas>
+					<canvas id="myChart" width="200" height="200"></canvas>
 				</div>
 			</div>	
         </div>
