@@ -66,13 +66,13 @@
 								}]
 							},
 							options: {
-								responsive: true,
+								responsive: false,
 								hover: {
 									mode: 'label'
 								},
 								title: {
 									display: true,
-									text: 'Last 20 Brightness Values'
+									text: 'Last 20 Brightness Values (Hover over data points to show detailed information)'
 								},
 								scales: {
 									yAxes: [{
@@ -82,7 +82,8 @@
 										}
 									}],
 									xAxes: [{
-										display: false
+										display: false,
+										labelString: 'Hover over data points to show detailed information'
 									}]
 								}
 							}
