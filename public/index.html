@@ -57,6 +57,7 @@
 						var ctx = document.getElementById("myChart").getContext("2d");
 						ctx.canvas.height = 50;
 						var myChart = new Chart(ctx , {
+							responsive: 'true',
 							type: 'line',
 							data: { 
 								labels: labels1,
@@ -64,7 +65,7 @@
 									label: 'Light Intensity (LUX)',
 									pointColor: 'rgba(250,135,20,1)',
 									fillColor: 'rgba(125,150,245,1)',
-									strokeColor: 'rgba(125,150,245,1)',
+									highlightFill: 'rgba(125,150,245,1)',
 									data: data1
 								}]
 							},
