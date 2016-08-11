@@ -20,8 +20,7 @@
 			$("#recent").show();
 			$("#list").hide();
 			$("#exit").hide();
-			
-
+			$("#listpage).hide();
 		}
 	</script>		
     <script>
@@ -34,11 +33,11 @@
 	$(function() {
 	    $("#listing").submit(function(event){
 		event.preventDefault();
-		
 		$("#recent").hide();
 		$("#dataview").hide();
 		$("#list").hide();
 		$("#exit").show();
+		$("#listpage).hide();
 
 		$.ajax({
                     url: event.target.action,
@@ -93,6 +92,7 @@
 						$("#exit").show();
 						$("#list").hide();
 						$("#recent").hide();
+						$("#listpage).show();
 						
 						var labels1 = [];
 						var data1 = [];
@@ -239,6 +239,9 @@
 				</div>
 			</div>	
         </div>
+	<div class="panel-body" id="listpage">
+	<label for="listpage1">Listing</label>
+	</div>
     </div>
 </body>
 </html>
