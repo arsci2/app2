@@ -37,6 +37,18 @@
 		
 	    });
 	});
+	$(function() {
+	    $("#listing").submit(function(event){
+		event.preventDefault();
+
+		$("#recent").hide();
+		$("#dataview").hide();
+		$("#list").hide();
+		$("#exit").hide();
+
+		
+	    });
+	});
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 		event.preventDefault();
@@ -131,9 +143,9 @@
     <div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-                <h3 class="panel-title" id="loaded"></h3>
+                <h3 class="panel-title"></h3>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-					<div="recent">
+					<div id="recent">
 						<button type="submit" class="btn btn-primary">Load Recent Data</button>
 					</div>
 				</form>
@@ -141,6 +153,12 @@
 				<form id="reload" action="/update" method="get" style="width: 400px">
 					<div id="exit">
 						<button type="submit" class="btn btn-primary">Exit</button>
+					</div>
+				</form>
+					<br>
+				<form id="listing" action="/update" method="get" style="width: 400px">
+					<div id="list">
+						<button type="submit" class="btn btn-primary">List</button>
 					</div>
 				</form>
             </div>
