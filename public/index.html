@@ -45,84 +45,6 @@
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     success: function(data) {
-						$("#val1").text(data.rows[0].name);
-						$("#val2").text(data.rows[1].name);
-						$("#val3").text(data.rows[2].name);
-						$("#val4").text(data.rows[3].name);
-						$("#val5").text(data.rows[4].name);
-						$("#val6").text(data.rows[5].name);
-						$("#val7").text(data.rows[6].name);
-						$("#val8").text(data.rows[7].name);
-						$("#val9").text(data.rows[8].name);
-						$("#val10").text(data.rows[9].name);
-						$("#val11").text(data.rows[10].name);
-						$("#val12").text(data.rows[11].name);
-						$("#val13").text(data.rows[12].name);
-						$("#val14").text(data.rows[13].name);
-						$("#val15").text(data.rows[14].name);
-						$("#val16").text(data.rows[15].name);
-						$("#val17").text(data.rows[16].name);
-						$("#val18").text(data.rows[17].name);
-						$("#val19").text(data.rows[18].name);
-						$("#val20").text(data.rows[19].name);
-
-						$("#aval1").text(data.rows[0].sensorvalue__c);
-						$("#aval2").text(data.rows[1].sensorvalue__c);
-						$("#aval3").text(data.rows[2].sensorvalue__c);
-						$("#aval4").text(data.rows[3].sensorvalue__c);
-						$("#aval5").text(data.rows[4].sensorvalue__c);
-						$("#aval6").text(data.rows[5].sensorvalue__c);
-						$("#aval7").text(data.rows[6].sensorvalue__c);
-						$("#aval8").text(data.rows[7].sensorvalue__c);
-						$("#aval9").text(data.rows[8].sensorvalue__c);
-						$("#aval10").text(data.rows[9].sensorvalue__c);
-						$("#aval11").text(data.rows[10].sensorvalue__c);
-						$("#aval12").text(data.rows[11].sensorvalue__c);
-						$("#aval13").text(data.rows[12].sensorvalue__c);
-						$("#aval14").text(data.rows[13].sensorvalue__c);
-						$("#aval15").text(data.rows[14].sensorvalue__c);
-						$("#aval16").text(data.rows[15].sensorvalue__c);
-						$("#aval17").text(data.rows[16].sensorvalue__c);
-						$("#aval18").text(data.rows[17].sensorvalue__c);
-						$("#aval19").text(data.rows[18].sensorvalue__c);
-						$("#aval20").text(data.rows[19].sensorvalue__c);
-
-						
-					}
-                })
-		
-	    });
-	});
-        $(function() {
-            $("#phoneChangerForm").submit(function(event) {
-		event.preventDefault();
-                $.ajax({
-                    url: event.target.action,
-                    method: event.target.method,
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    success: function(data) {
-						$("#sensorvalue").text(data.rows[0].sensorvalue__c);
-						$("#sensortimestamp").text(data.rows[0].sensortimestamp__c);
-						$("#id").text(data.rows[0].id);
-						$("#name").text(data.rows[0].name);
-						$("#deviceuser").text(data.rows[0].deviceuser__c);
-						$("#deviceos").text(data.rows[0].deviceos__c);
-						$("#loginuname").text(data.rows[0].loginuname__c);
-						$("#devicename").text(data.rows[0].devicename__c);
-						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
-						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
-						$("#deviceipint").text(data.rows[0].deviceipint__c);
-						$("#deviceipext").text(data.rows[0].deviceipext__c);
-						$("#localtime").text(data.rows[0].localtimestamppst__c);
-						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
-						
-						$("#dataview").show();
-						$("#exit").show();
-						$("#list").hide();
-						$("#recent").hide();
-						$("#listpage").hide();
-						
 						var labels1 = [];
 						var data1 = [];
 						for(var l=0; l<20; l++){
@@ -170,7 +92,45 @@
 								}
 							}
 						});
-						myChart.update(2000);	
+						myChart.update(2000);
+
+						
+					}
+                })
+		
+	    });
+	});
+        $(function() {
+            $("#phoneChangerForm").submit(function(event) {
+		event.preventDefault();
+                $.ajax({
+                    url: event.target.action,
+                    method: event.target.method,
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function(data) {
+						$("#sensorvalue").text(data.rows[0].sensorvalue__c);
+						$("#sensortimestamp").text(data.rows[0].sensortimestamp__c);
+						$("#id").text(data.rows[0].id);
+						$("#name").text(data.rows[0].name);
+						$("#deviceuser").text(data.rows[0].deviceuser__c);
+						$("#deviceos").text(data.rows[0].deviceos__c);
+						$("#loginuname").text(data.rows[0].loginuname__c);
+						$("#devicename").text(data.rows[0].devicename__c);
+						$("#_hc_lastop").text(data.rows[0]._hc_lastop);
+						$("#mcuinfo").text(data.rows[0].mcuinfo__c);
+						$("#deviceipint").text(data.rows[0].deviceipint__c);
+						$("#deviceipext").text(data.rows[0].deviceipext__c);
+						$("#localtime").text(data.rows[0].localtimestamppst__c);
+						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
+						
+						$("#dataview").show();
+						$("#exit").show();
+						$("#list").hide();
+						$("#recent").hide();
+						$("#listpage").hide();
+						
+							
 					}
                 })
             });
