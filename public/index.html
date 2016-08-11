@@ -191,7 +191,7 @@
                 <h3 class="panel-title"></h3>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 					<div id="recent">
-						<button type="submit" class="btn btn-primary">Load Recent Data</button>
+						<button type="submit" class="btn btn-primary">Load Detailed Data</button>
 						<br><br>
 					</div>
 				</form>
@@ -205,7 +205,7 @@
 					
 				<form id="listing" action="/update" method="get" style="width: 400px">
 					<div id="list">
-						<button type="submit" class="btn btn-primary">List Recent Entries</button>
+						<button type="submit" class="btn btn-primary">List Historical Graph</button>
 						<br><br>
 					</div>
 				</form>
@@ -213,26 +213,9 @@
 	    
 	    <div class="panel-body" id="listpage">
 	    <label for="listpage1">Listing</label>
-		<br><div id="val1"></div><div id="aval1"></div>
-		<br><div id="val2"></div><div id="aval2"></div>
-		<br><div id="val3"></div><div id="aval3"></div>
-		<br><div id="val4"></div><div id="aval4"></div>
-		<br><div id="val5"></div><div id="aval5"></div>
-		<br><div id="val6"></div><div id="aval6"></div>
-		<br><div id="val7"></div><div id="aval7"></div>
-		<br><div id="val8"></div><div id="aval8"></div>
-		<br><div id="val9"></div><div id="aval9"></div>
-		<br><div id="val10"></div><div id="aval10"></div>
-		<br><div id="val11"></div><div id="aval11"></div>
-		<br><div id="val12"></div><div id="aval12"></div>
-		<br><div id="val13"></div><div id="aval13"></div>
-		<br><div id="val14"></div><div id="aval14"></div>
-		<br><div id="val15"></div><div id="aval15"></div>
-		<br><div id="val16"></div><div id="aval16"></div>
-		<br><div id="val17"></div><div id="aval17"></div>
-		<br><div id="val18"></div><div id="aval18"></div>
-		<br><div id="val19"></div><div id="aval19"></div>
-		<br><div id="val20"></div><div id="aval20"></div>
+		<div class="form-group" id="gv">
+					<canvas id="myChart" width="100" height="100"></canvas>
+		</div>
 	    </div>
 	    
             <div class="panel-body" id="dataview">
@@ -285,9 +268,7 @@
                     <label for="sensorinfo">Sensor Information: </label>
                     <div id="sensorinfo">
                 </div>				
-            	<div class="form-group" id="gv">
-					<canvas id="myChart" width="100" height="100"></canvas>
-		</div>
+            	
 	     </div>	
         </div>
     </div>
