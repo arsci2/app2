@@ -62,7 +62,9 @@
 							labels1[l] = (data.rows[l].localtimestamppst__c);
 						}
 						labels1[0] = "Current: " + labels1[0];
-						
+
+						delete data;
+
 						var ctx = document.getElementById("myChart").getContext("2d");
 						ctx.canvas.height = 50;
 						var myChart = new Chart(ctx , {
