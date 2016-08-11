@@ -28,13 +28,7 @@
 	$(function() {
 	    $("#reload").submit(function(event){
 		event.preventDefault();
-
-		$("#recent").hide();
-		$("#dataview").hide();
-		$("#list").hide();
-		$("#exit").show();
-
-		
+		location.reload();		
 	    });
 	});
 	$(function() {
@@ -147,18 +141,21 @@
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 					<div id="recent">
 						<button type="submit" class="btn btn-primary">Load Recent Data</button>
+						<br>
 					</div>
 				</form>
-					<br>
+					
 				<form id="reload" action="/update" method="get" style="width: 400px">
 					<div id="exit">
 						<button type="submit" class="btn btn-primary">Exit</button>
+						<br>
 					</div>
 				</form>
-					<br>
+					
 				<form id="listing" action="/update" method="get" style="width: 400px">
 					<div id="list">
 						<button type="submit" class="btn btn-primary">List</button>
+						<br>
 					</div>
 				</form>
             </div>
