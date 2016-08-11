@@ -91,7 +91,7 @@
 						
 						$("#dataview").show();
 						$("#exit").show();
-						$("#list").show();
+						$("#list").hide();
 						$("#recent").hide();
 						
 						var labels1 = [];
@@ -163,21 +163,21 @@
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 					<div id="recent">
 						<button type="submit" class="btn btn-primary">Load Recent Data</button>
-						<br>
+						<br><br>
 					</div>
 				</form>
 					
 				<form id="reload" action="/update" method="get" style="width: 400px">
 					<div id="exit">
 						<button type="submit" class="btn btn-primary">Exit</button>
-						<br>
+						<br><br>
 					</div>
 				</form>
 					
 				<form id="listing" action="/update" method="get" style="width: 400px">
 					<div id="list">
 						<button type="submit" class="btn btn-primary">List</button>
-						<br>
+						<br><br>
 					</div>
 				</form>
             </div>
