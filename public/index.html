@@ -28,12 +28,13 @@
 		event.preventDefault();
 		$("#dataview").show();
 		$("#boxview").hide();
-		location.reload();
+		
 	    });
 	});
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
-				event.preventDefault();
+		event.preventDefault();
+		location.reload();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
