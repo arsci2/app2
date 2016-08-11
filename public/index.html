@@ -17,24 +17,29 @@
 	<script>
 		function defaultView(){
 			$("#dataview").hide();
-			$("#boxview").show();
-			$("#reload").show();
+			$("#recent").show();
+			$("#list").show();
+			$("#exit").hide();
+			
 
 		}
 	</script>		
     <script>
 	$(function() {
-	    $("#boxaction").submit(function(event){
+	    $("#reload").submit(function(event){
 		event.preventDefault();
-		$("#dataview").show();
-		$("#boxview").hide();
+
+		$("#recent").hide();
+		$("#dataview").hide();
+		$("#list").hide();
+		$("#exit").show();
+
 		
 	    });
 	});
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 		event.preventDefault();
-		location.reload();
                 $.ajax({
                     url: event.target.action,
                     method: event.target.method,
@@ -57,8 +62,9 @@
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 						
 						$("#dataview").show();
-						$("#boxview").hide();
-						$("#loaded").hide();
+						$("#exit").show();
+						$("#list").hide();
+						$("#recent").hide();
 						
 						var labels1 = [];
 						var data1 = [];
@@ -127,14 +133,14 @@
 			<div class="panel-heading">
                 <h3 class="panel-title" id="loaded"></h3>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-					<div>
+					<div="recent">
 						<button type="submit" class="btn btn-primary">Load Recent Data</button>
 					</div>
 				</form>
 					<br>
-				<form id="boxaction" action="/update" method="get" style="width: 400px">
-					<div id="boxview">
-						<button type="submit" class="btn btn-primary">Refresh</button>
+				<form id="reload" action="/update" method="get" style="width: 400px">
+					<div id="exit">
+						<button type="submit" class="btn btn-primary">Exit</button>
 					</div>
 				</form>
             </div>
