@@ -21,6 +21,13 @@
 		}
 	</script>		
     <script>
+	$(function() {
+	    $("#boxaction").submit(function(event){
+		event.preventDefault();
+		$("#dataview").show();
+		$("#boxview").hide();
+	    });
+	});
         $(function() {
             $("#phoneChangerForm").submit(function(event) {
 				event.preventDefault();
@@ -118,7 +125,7 @@
 				</form>
             </div>
 	    <div class="panel-body" id="boxview">
-		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+		<form id="boxaction" action="/update" method="get" style="width: 400px">
 			<div>
 				<button type="submit" class="btn btn-primary">BOXVIEW</button>
 			</div>
