@@ -18,6 +18,7 @@
 		function defaultView(){
 			$("#dataview").hide();
 			$("#boxview").show();
+			$("#reload").hide();
 		}
 	</script>		
     <script>
@@ -54,6 +55,7 @@
 						
 						$("#dataview").show();
 						$("#boxview").hide();
+						$("#reload").hide();
 						
 						var labels1 = [];
 						var data1 = [];
@@ -122,12 +124,12 @@
 			<div class="panel-heading">
                 <h3 class="panel-title"></h3>
 				<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
-					<div>
+					<div id="reload">
 						<button type="submit" class="btn btn-primary">Load Recent Data</button>
 					</div>
 				</form>
 				<form id="boxaction" action="/update" method="get" style="width: 400px">
-					<div class="panel-body" id="boxview">
+					<div id="boxview">
 						<button type="submit" class="btn btn-primary">BOXVIEW</button>
 					</div>
 				</form>
