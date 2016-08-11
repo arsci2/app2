@@ -16,6 +16,7 @@
     </style>
 	<script>
 		function defaultView(){
+			$("#boxview").show();
 			$("#dataview").hide();
 		}
 	</script>		
@@ -45,6 +46,7 @@
 						$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 						
 						$("#dataview").show();
+						$("#boxview").hide();
 						
 						var labels1 = [];
 						var data1 = [];
@@ -114,6 +116,13 @@
 					</div>
 				</form>
             </div>
+	    <div class="panel-body" id="boxview">
+		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
+			<div>
+				<button type="submit" class="btn btn-primary">BOXACTION</button>
+			</div>
+		</form>
+	    </div>
             <div class="panel-body" id="dataview">
                 <div class="form-group" id="sv">
                     <label for="sensorvalue">Brightness Level (LUX):</label>
