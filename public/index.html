@@ -63,9 +63,10 @@
 						}
 						labels1[0] = "Current: " + labels1[0];
 
-						delete data;
-						delete update;
-						delete json;
+						delete_post(data);
+						delete_post(update);
+						delete_post(json);
+					
 
 						var ctx = document.getElementById("myChart").getContext("2d");
 						ctx.canvas.height = 50;
