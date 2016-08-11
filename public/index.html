@@ -16,8 +16,8 @@
     </style>
 	<script>
 		function defaultView(){
-			$("#boxview").show();
 			$("#dataview").hide();
+			$("#boxview").show();
 		}
 	</script>		
     <script>
@@ -65,8 +65,9 @@
 								labels: labels1,
 								datasets:[{
 									label: 'Light Intensity (LUX)',
-									pointColor: 'rgba(250,135,20,0)',
-									fillColor: 'rgba(125,150,245,0)',
+									pointColor: 'rgba(250,135,20,1)',
+									fillColor: 'rgba(125,150,245,1)',
+									highlightFill: 'rgba(125,150,245,1)',
 									data: data1
 								}]
 							},
@@ -119,7 +120,7 @@
 	    <div class="panel-body" id="boxview">
 		<form id="phoneChangerForm" action="/update" method="get" style="width: 400px">
 			<div>
-				<button type="submit" class="btn btn-primary">BOXACTION</button>
+				<button type="submit" class="btn btn-primary">BOXVIEW</button>
 			</div>
 		</form>
 	    </div>
