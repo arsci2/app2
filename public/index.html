@@ -21,16 +21,9 @@
 				$("#list").show();
 				$("#exit").hide();
 				$("#listpage").hide();
+				$("#date").hide();
 			
-				var currentDate = new Date();
-				var dateTime = "Data Last Refreshed: " 	+ currentDate.getDate() + "/"
-									+ (currentDate.getMonth()+1) + "/"
-									+ currentDate.getFullYear() + "  "
-									+ currentDate.getHours() + ":"
-									+ currentDate.getMinutes() + ":"
-									+ currentDate.getSeconds();
-
-				$("#date").text(dateTime);
+				
 			}
 		</script>		
 		<script>
@@ -43,11 +36,23 @@
 			$(function() {
 				$("#listing").submit(function(event){
 					event.preventDefault();
+
+					var currentDate = new Date();
+					var dateTime = "Data Last Refreshed: " 	+ (currentDate.getMonth()+1) + "/"
+										+ currentDate.getDate() + "/"
+										+ currentDate.getFullYear() + "  "
+										+ currentDate.getHours() + ":"
+										+ currentDate.getMinutes() + ":"
+										+ currentDate.getSeconds();
+
+					$("#date").text(dateTime);
+
 					$("#recent").hide();
 					$("#dataview").hide();
 					$("#list").hide();
 					$("#exit").show();
 					$("#listpage").show();
+					$("#date").show();
 					$.ajax({
 						url: event.target.action,
 						method: event.target.method,
@@ -105,6 +110,17 @@
 			$(function() {
 				$("#phoneChangerForm").submit(function(event) {
 					event.preventDefault();
+
+					var currentDate = new Date();
+					var dateTime = "Data Last Refreshed: " 	+ (currentDate.getMonth()+1) + "/"
+										+ currentDate.getDate() + "/"
+										+ currentDate.getFullYear() + "  "
+										+ currentDate.getHours() + ":"
+										+ currentDate.getMinutes() + ":"
+										+ currentDate.getSeconds();
+
+					$("#date").text(dateTime);
+
 					$.ajax({
 						url: event.target.action,
 						method: event.target.method,
@@ -127,6 +143,7 @@
 							$("#sensorinfo").text(data.rows[0].sensorinfo__c);
 							$("#dataview").show();
 							$("#exit").show();
+							$("#date").show();
 							$("#list").hide();
 							$("#recent").hide();
 							$("#listpage").hide();
