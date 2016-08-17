@@ -38,12 +38,18 @@
 					event.preventDefault();
 
 					var currentDate = new Date();
+					var currentSec = "0";
+					var currentMin = "0";
+					
+					if(Number(currentDate.getSeconds()) < 10) currentSec = "0" + currentDate.getSeconds();
+					if(Number(currentDate.getMinutes()) < 10) currentMin = "0" + currentDate.getMinutes();
+
 					var dateTime = "Data Last Refreshed: " 	+ (currentDate.getMonth()+1) + "/"
 										+ currentDate.getDate() + "/"
 										+ currentDate.getFullYear() + "  "
 										+ currentDate.getHours() + ":"
-										+ currentDate.getMinutes() + ":"
-										+ currentDate.getSeconds();
+										+ currentMin + ":"
+										+ currentSec();
 
 					$("#date").text(dateTime);
 
@@ -112,12 +118,18 @@
 					event.preventDefault();
 
 					var currentDate = new Date();
+					var currentSec = "0";
+					var currentMin = "0";
+					
+					if(Number(currentDate.getSeconds()) < 10) currentSec = "0" + currentDate.getSeconds();
+					if(Number(currentDate.getMinutes()) < 10) currentMin = "0" + currentDate.getMinutes();
+
 					var dateTime = "Data Last Refreshed: " 	+ (currentDate.getMonth()+1) + "/"
 										+ currentDate.getDate() + "/"
 										+ currentDate.getFullYear() + "  "
 										+ currentDate.getHours() + ":"
-										+ currentDate.getMinutes() + ":"
-										+ currentDate.getSeconds();
+										+ currentMin + ":"
+										+ currentSec();
 
 					$("#date").text(dateTime);
 
