@@ -22,6 +22,7 @@
 				$("#exit").hide();
 				$("#listpage").hide();
 				$("#date").hide();
+				$("#date_box").hide();
 			
 				
 			}
@@ -59,6 +60,7 @@
 					$("#exit").show();
 					$("#listpage").show();
 					$("#date").show();
+					$("#date_box").show();
 					$.ajax({
 						url: event.target.action,
 						method: event.target.method,
@@ -156,6 +158,7 @@
 							$("#dataview").show();
 							$("#exit").show();
 							$("#date").show();
+							$("#date_box").show();
 							$("#list").hide();
 							$("#recent").hide();
 							$("#listpage").hide();
@@ -192,10 +195,12 @@
 					<form id="listing" action="/update" method="get" style="width: 400px">
 						<div id="list">
 							<button type="submit" class="btn btn-primary">Load Historical Data (Graph)</button>
-							<br><br>
+							<br>
 						</div>
 					</form>
-					<div id="date"></div>
+					<div id="date_box"><br><br>
+						<div id="date"></div>
+					</div>
 				</div>
 				<div class="panel-body" id="listpage">
 					<label for="listpage1"></label>
