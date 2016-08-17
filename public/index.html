@@ -15,6 +15,7 @@
 			}
 		</style>		
 		<script>
+			// Function to setup default DIV view settings
 			function defaultView(){
 				$("#dataview").hide();
 				$("#recent").show();
@@ -24,12 +25,20 @@
 				$("#date").hide();
 				$("#date_box").hide();	
 			}
+			
+			// Function called by MAIN MENU button on page.
+			// Refreshes page and resets all data, 
+			// forces page to request new data when user selects new menu option.
 			$(function() {
 				$("#reload").submit(function(event){
 					event.preventDefault();
 					location.reload();		
 				});
 			});
+			
+			// Calls jQuery code to get data. Called when 'LOAD HISTORICAL DATA' is selected.
+			// Also generates timestamp information and sets DIV view boxes to show requested information.
+			// Generates graph using jsChart library to show last 20 data points with timestamp information.
 			$(function() {
 				$("#listing").submit(function(event){
 					event.preventDefault();
@@ -107,6 +116,10 @@
 					})
 				});
 			});
+			
+			// Calls jQuery code to get data. Called when 'LOAD DETAILED DATA' is selected.
+			// Also generates timestamp information and sets DIV view boxes to show requested information.
+			// Shows detailed information on the last database entry. Does not show chart.
 			$(function() {
 				$("#phoneChangerForm").submit(function(event) {
 					event.preventDefault();
@@ -156,6 +169,11 @@
 			});
 		</script>
 	</head>
+	
+	// MAIN BODY
+	
+	// Formatting for all DIV boxes and charts. DIV view settings changed throughout depending on 
+	// options selected. Javascript must be enabled for page to work correctly.
 	<body onload = "defaultView()">
 		<nav class="navbar navbar-inverse navbar-fixed-top" style="width:100%; margin:center;">
 			<div class="container" style="width:95%; margin:left;">
