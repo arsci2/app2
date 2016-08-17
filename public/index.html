@@ -21,6 +21,16 @@
 				$("#list").show();
 				$("#exit").hide();
 				$("#listpage").hide();
+			
+				var currentDate = new Date();
+				var dateTime = "Data Last Refreshed: " 	+ currentDate.getDate() + "/"
+									+ (currentDate.getMonth()+1) + "/"
+									+ currentDate.getFullYear() + "  "
+									+ currentDate.getHours() + ":"
+									+ currentDate.getMinutes() + ":"
+									+ currentDate.getSeconds();
+
+				$("#date").text(dateTime);
 			}
 		</script>		
 		<script>
@@ -153,9 +163,10 @@
 					<form id="listing" action="/update" method="get" style="width: 400px">
 						<div id="list">
 							<button type="submit" class="btn btn-primary">Load Historical Data (Graph)</button>
-							<br>
+							<br><br>
 						</div>
 					</form>
+					<div id="date"></div>
 				</div>
 				<div class="panel-body" id="listpage">
 					<label for="listpage1"></label>
