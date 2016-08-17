@@ -31,8 +31,8 @@
 			// forces page to request new data when user selects new menu option.
 			$(function() {
 				$("#reload").submit(function(event){
-					event.preventDefault();
-					location.reload();		
+					event.preventDefault(); // Do not redirect
+					location.reload(); // Force refresh
 				});
 			});
 			
@@ -41,7 +41,9 @@
 			// Generates graph using jsChart library to show last 20 data points with timestamp information.
 			$(function() {
 				$("#listing").submit(function(event){
-					event.preventDefault();
+					event.preventDefault(); //Do not redirect
+					
+					// Generate 'LAST PAGE REFRESH' timestamp data
 					var currentDate = new Date();
 					var currentSec = currentDate.getSeconds();
 					var currentMin = currentDate.getMinutes();
@@ -55,6 +57,8 @@
 									+ currentMin + ":"
 									+ currentSec;
 					$("#date").text(dateTime);
+														
+					// Set DIV box view settings
 					$("#recent").hide();
 					$("#dataview").hide();
 					$("#list").hide();
@@ -62,6 +66,8 @@
 					$("#listpage").show();
 					$("#date").show();
 					$("#date_box").show();
+					
+					// Make function call to jQuery to retrieve data from database
 					$.ajax({
 						url: event.target.action,
 						method: event.target.method,
@@ -75,6 +81,8 @@
 								labels1[l] = (data.rows[l].localtimestamppst__c);
 							}
 							labels1[0] = "Current: " + labels1[0];
+							
+							// Generate graph data
 							var ctx = document.getElementById("myChart").getContext("2d");
 							ctx.canvas.height = 50;
 							var myChart = new Chart(ctx , {
@@ -111,6 +119,8 @@
 									}
 								}
 							});
+							
+							// Force chart refresh
 							myChart.update(2000);						
 						}
 					})
@@ -122,7 +132,9 @@
 			// Shows detailed information on the last database entry. Does not show chart.
 			$(function() {
 				$("#phoneChangerForm").submit(function(event) {
-					event.preventDefault();
+					event.preventDefault(); // Do not redirect
+					
+					// Generate 'LAST PAGE REFRESH' timestamp data
 					var currentDate = new Date();
 					var currentSec = currentDate.getSeconds();
 					var currentMin = currentDate.getMinutes();
@@ -136,12 +148,15 @@
 									+ currentMin + ":"
 									+ currentSec;
 					$("#date").text(dateTime);
+					
+					// Make function call to jQuery to retrieve data from database
 					$.ajax({
 						url: event.target.action,
 						method: event.target.method,
 						contentType: 'application/json; charset=utf-8',
 						dataType: 'json',
 						success: function(data) {
+							// Populate page variables with 
 							$("#sensorvalue").text(data.rows[0].sensorvalue__c);
 							$("#sensortimestamp").text(data.rows[0].sensortimestamp__c);
 							$("#id").text(data.rows[0].id);
@@ -156,6 +171,8 @@
 							$("#deviceipext").text(data.rows[0].deviceipext__c);
 							$("#localtime").text(data.rows[0].localtimestamppst__c);
 							$("#sensorinfo").text(data.rows[0].sensorinfo__c);
+							
+							// Set DIV box view settings
 							$("#dataview").show();
 							$("#exit").show();
 							$("#date").show();
@@ -169,11 +186,6 @@
 			});
 		</script>
 	</head>
-	
-	// MAIN BODY
-	
-	// Formatting for all DIV boxes and charts. DIV view settings changed throughout depending on 
-	// options selected. Javascript must be enabled for page to work correctly.
 	<body onload = "defaultView()">
 		<nav class="navbar navbar-inverse navbar-fixed-top" style="width:100%; margin:center;">
 			<div class="container" style="width:95%; margin:left;">
